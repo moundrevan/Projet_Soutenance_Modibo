@@ -129,6 +129,29 @@
                                                         @enderror
                                                     </div>
                                                 </div>
+                                                <div class="form-group col-md-6">
+                                                    <label>Type:</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text"><i
+                                                                    class="fas fa-people-arrows"></i></span>
+                                                        </div>
+                                                        <select id="type" type="text" placeholder="type"
+                                                            class="form-control select2bs4 @error('type') is-invalid @enderror"
+                                                            name="type" value="{{ old('type') }}" required
+                                                            autocomplete="sexe" autofocus>
+                                                            <option selected="selected">Choisissez type d'tulisateur</option>
+                                                            <option value="prof">Prof</option>
+                                                            <option value="admin">Admin</option>
+                                                            <option value="etudiant">Etudiant</option>
+                                                        </select>
+                                                        @error('sexe')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="row">
                                                 <div class="form-group col-md-6">

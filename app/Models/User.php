@@ -30,6 +30,9 @@ class User extends Authenticatable
         'telephone',
         'email',
         'password',
+        'is_admin',
+        'is_prof',
+        'is_etudiant'
         // 'avatar',
 
     ];
@@ -55,5 +58,16 @@ class User extends Authenticatable
     public function fullName()
     {
         return $this->prenom . ' ' . $this->nom;
+    }
+
+    public function type()
+    {
+        if($this->is_admin == 1){
+            return 'ADMIN';
+        }else if($this->is_prof == 1){
+            return 'PROF';
+        }else{
+            return 'ETUDIANT';
+        }
     }
 }

@@ -53,10 +53,15 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
+        $admin = 0;
+        $prof = 0;
+        $etudiant = 0;
+
         $request->validate([
             'matricule' => ['required', 'string', 'max:255'],
             'nom' => ['required', 'string', 'max:255'],
             'prenom' => ['required', 'string', 'max:255'],
+            'type' => ['required', 'string'],
             'sexe' => ['required', 'string', 'max:10', 'min:1'],
             'dateNaissance' => ['required', 'string', 'date', 'max:255'],
             'lieuNaissance' => ['required', 'string', 'max:255'],
@@ -64,11 +69,29 @@ class UserController extends Controller
             'telephone' => ['required', 'string', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
+
+        if($request->type === 'prof'){
+            $admin = 0;
+            $prof = 1;
+            $etudiant = 0;
+        }else if($request->type === 'admin'){
+            $admin = 1;
+            $prof = 0;
+            $etudiant = 0;
+        }else{
+            $admin = 1;
+            $prof = 0;
+            $etudiant = 0;
+        }
+
         User::create([
             'matricule' => $request->matricule,
             'prenom' => $request->prenom,
             'nom' => $request->nom,
             'sexe' => $request->sexe,
+            'is_admin' => $admin,
+            'is_prof' => $prof,
+            'is_etudiant' => $etudiant,
             'dateNaissance' => $request->dateNaissance,
             'lieuNaissance' => $request->lieuNaissance,
             'email' => $request->email,

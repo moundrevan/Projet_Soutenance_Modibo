@@ -48,6 +48,7 @@
                                             <th class="text-center">Nom</th>
                                             <th class="text-center">Prénom</th>
                                             <th class="text-center">Genre</th>
+                                            <th class="text-center">Type</th>
                                             <th class="text-center">Date Naissance</th>
                                             <th class="text-center">Lieu Naissance</th>
                                             <th class="text-center">Téléphone</th>
@@ -62,6 +63,7 @@
                                                 <td class="text-center">{{ $user->nom }}</td>
                                                 <td class="text-center">{{ $user->prenom }}</td>
                                                 <td class="text-center">{{ $user->sexe }}</td>
+                                                <td class="text-center">{{ $user->type() }}</td>
                                                 <td class="text-center">{{ $user->dateNaissance }}</td>
                                                 <td class="text-center">{{ $user->lieuNaissance }}</td>
                                                 <td class="text-center">{{ $user->telephone }}</td>
@@ -91,6 +93,7 @@
                                             <th class="text-center">Nom</th>
                                             <th class="text-center">Prénom</th>
                                             <th class="text-center">Genre</th>
+                                            <th class="text-center">Type</th>
                                             <th class="text-center">Date Naissance</th>
                                             <th class="text-center">Lieu Naissance</th>
                                             <th class="text-center">Téléphone</th>

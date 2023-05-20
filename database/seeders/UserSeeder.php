@@ -23,6 +23,7 @@ class UserSeeder extends Seeder
             'dateNaissance' => '1996-18-10',
             'lieuNaissance' => 'Siribala',
             'telephone' => '+22374765475',
+            'is_admin' => 1,
             'email' => 'samake@gmail.com',
             'password' => bcrypt('secret'),
         ]);
